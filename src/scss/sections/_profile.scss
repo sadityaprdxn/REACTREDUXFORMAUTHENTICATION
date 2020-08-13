@@ -1,0 +1,169 @@
+.profile {
+    padding: 50px 0;
+    .user {
+        width: 90%;
+        padding : 25px;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        margin: 0 auto 50px;
+        position: relative;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat; 
+        box-shadow: 2px 2px 15px #000;
+        
+        span {
+            padding: 10px 0 0;
+            display: block;
+            @include textcharacteristics($white, 15px, 800, uppercase);
+            text-align : center;
+            text-shadow: 2px 2px 8px #000;
+        }
+    }
+        
+    #edit {
+        width: 40%;
+        padding: 1% 0;
+        border-style: none;
+        border-radius: 10px;
+        margin: 15px 30% 0;
+        font-size: 20px;
+        text-transform: capitalize;
+        font-family: 'brusher';
+        transition: 0.3s ease-in-out;
+        background-color: rgb(250, 204, 0);
+        color : black;
+        text-align: center;
+    }
+    
+    #logout {
+        @include position(absolute, 1, 10%, -20%, auto, auto);
+        padding: 5px 30px;
+        border-style: none;
+        border-radius: 10px;
+        margin: 15px 30% 0;
+        font-size: 20px;
+        text-transform: capitalize;
+        font-family: 'brusher';
+        transition: 0.3s ease-in-out;
+        background-color: rgb(250, 204, 0);
+        color : black;
+        text-align: center;
+    }
+
+    figure {
+        width: 18%;
+        margin: 0 auto;
+    }
+
+    img {
+        border: 10px solid rgba(0,0,0,0.7);
+        border-radius: 50%;
+        box-sizing: border-box;
+    }
+
+    .update-user {
+        width : 80%;
+        padding : 30px 80px;
+        border: 1px solid $primaryColor;
+        border-bottom-left-radius: 50px;
+        border-top-right-radius: 50px;
+        margin: 0 auto;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    form {
+        @include flex(wrap, row, space-around, center, center);
+    }
+
+    .form-group {
+        width: 40%;
+        margin: 10px 0;
+        position: relative;
+        
+
+        &.success {
+            input { border: 2px solid #004445; }
+            .green { display: block; }
+        }
+		
+        &.error {
+            input { border: 2px solid rgb(223, 37, 12); }
+            .red { display: block; }
+        }
+    }
+
+    label {
+        padding-bottom: 10px;
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border-style: none;
+        border: 2px solid rgba(0,0,0,0.4);
+        border-bottom-left-radius: 10px;
+        border-top-right-radius: 10px;
+        box-sizing: border-box;
+        outline: none;
+    }
+    
+
+    .green {
+        text-indent: -9999px;
+        position: absolute;
+        right: 0;
+        bottom: 2%;
+        transform: translateX(-50%) translateY(-50%);
+        display: none;
+
+        &:before {
+            content: "\f058";
+            font-family: "fontAwesome";
+            text-indent: 0;
+            float: right;
+            font-size: 20px;
+            color: #004445;
+        }
+    }
+
+    .red {
+        text-indent: -9999px;
+        position: absolute;
+        right: 0;
+        bottom: 2%;
+        transform: translateX(-50%) translateY(-50%);
+        display: none;
+
+        &:before {
+            content: "\f06a";
+            font-family: "fontAwesome";
+            text-indent: 0;
+            float: right;
+            font-size: 20px;
+            color: rgb(223, 37, 12);
+        }
+    }
+
+    .form-controls {
+        width: 30%;
+        margin-top: 20px;
+    }
+    
+    button {
+        width: 100%;
+        border-style: none;
+        background-color: rgb(250, 204, 0);
+        padding: 2%;
+        border-radius: 5px;
+        font-size: 20px;
+        text-transform: capitalize;
+        font-family: 'brusher';
+        transition: 0.3s ease-in-out;
+    }
+}

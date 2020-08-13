@@ -1,0 +1,233 @@
+// BOX SIZING MIXIN
+@mixin boxsizing {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+  
+// TEXT PROPERTIES MIXIN
+@mixin textcharacteristics($color,$fontsize:16px,$fontweight:400,$texttransform:null,$line:null) {
+	color: $color;
+	font-size: $fontsize;
+	font-weight: $fontweight;
+	line-height: $line;
+	text-transform: $texttransform;
+}
+  
+// BACKGROUND IMAGE MIXIN
+@mixin backgroundImage($image:null,$position:null,$size:null,$repeat:repeat) {
+	background: {
+		image :$image;
+		position: $position;
+		size: $size;
+		repeat: $repeat;
+	};
+}
+
+// PSEUDOELEMENT MIXIN
+@mixin  pseudoElement($content:' ',$fontsize:15px,$color:black,$float:right) {
+	content: $content;
+	float: $float;
+	color: $color;
+	font-size: $fontsize;
+	font-family: 'fontAwesome';
+	text-indent: 0;
+}
+  
+// MAKE CENTER CONTENT
+@mixin centerize {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	@include transform(translate(-50%, -50%));
+}
+  
+// OVERLAY MIXIN
+@mixin overlay {
+	@include transition(0.5s);
+	opacity: 1;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+  
+// DISPLAY FLEX MIXIN
+@mixin flex($wrap:null,$direction:row,$justify:null,$alignitem:null,$aligncontent:null) {
+	display : -webkit-box;
+	display : -ms-flexbox;
+	display : flex;
+	-ms-flex-wrap: $wrap;
+	flex-wrap: $wrap;
+	flex-direction: $direction;
+	@if($direction == column) {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction:$direction;
+	} @else {
+		-webkit-box-orient:horizontal;
+		-webkit-box-direction:normal;
+		-ms-flex-direction:$direction;
+	}
+	-webkit-box-pack: $justify;
+	-ms-flex-pack: $justify;
+	justify-content: $justify;
+	-webkit-box-align: $alignitem;
+	-ms-flex-align: $alignitem;
+	align-items: $alignitem;
+	-ms-flex-line-pack: $aligncontent;
+	align-content: $aligncontent;
+}
+  
+// TRANSITION AND TRANSFORM MIXIN
+@mixin transition($value) {
+	-webkit-transition: $value ease-in-out;
+	-o-transition: $value ease-in-out;
+	transition: $value ease-in-out;
+}
+  
+@mixin transform($property) {
+	-webkit-transform: $property;
+	-ms-transform: $property;
+	transform: $property;
+}
+
+//CLIP PATH MIXIN
+@mixin clip-path($values) {
+	-webkit-clip-path: $values;
+	clip-path: $values;
+}
+
+//POSITION MIXIN
+@mixin position($position:relative,$zindex:0,$top:auto,$right:auto,$bottom:auto,$left:auto) {
+	position: $position;
+	z-index: $zindex;
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+//VENDOR PREFIX MIXIN
+@mixin vendor($property, $content) {
+	-webkit-#{$property}: $content;
+	-moz-#{$property}: $content;
+	-ms-#{$property}: $content;
+	-o-#{$property}: $content;
+	#{$property}: $content;
+}
+
+//MEDIA QUERY MIXIN
+@mixin responsive($width) {
+	@media screen and (max-width: $width + "px") {
+		@content;
+	}
+}
+
+@mixin responsive-min($width) {
+	@media screen and (min-width: $width + "px") {
+		@content;
+	}
+}
+
+@mixin breakpoint($device) {
+	@if($device=='mac') {
+		@media screen and (max-width: $mac) {
+			@content;
+		}
+	}
+
+	@else if($device=='pc') {
+		@media screen and (max-width: $pc) {
+			@content;
+		}
+	}
+
+	@else if($device=='small-pc') {
+		@media screen and (max-width: $small-pc) {
+			@content;
+		}
+	}
+
+	@else if($device=='notebook') {
+		@media screen and (max-width: $notebook) {
+			@content;
+		}
+	}
+
+	@else if($device=='ipad') {
+		@media screen and (max-width: $ipad) {
+			@content;
+		}
+	}
+
+	@else if($device=='phone') {
+		@media screen and (max-width: $phone) {
+			@content;
+		}
+	}
+
+	@else if($device=='iphone') {
+		@media screen and (max-width: $iphone) {
+			@content;
+		}
+	}
+	@if($device=='small-iphone') {
+		@media screen and (max-width: $small-iphone) {
+			@content;
+		}
+	}
+}
+
+//MEDIA REVERSE BREAKPOINT
+@mixin reverse-breakpoint($device) {
+	@if($device=='pc') {
+		@media screen and (min-width: $pc) {
+			@content;
+		}
+	}
+
+	@else if($device=='small-pc') {
+		@media screen and (min-width: $small-pc) {
+			@content;
+		}
+	}
+
+	@else if($device=='notebook') {
+		@media screen and (min-width: $notebook) {
+			@content;
+		}
+	}
+
+	@else if($device=='ipad') {
+		@media screen and (min-width: $ipad) {
+			@content;
+		}
+	}
+
+	@else if($device=='phone') {
+		@media screen and (min-width: $phone) {
+			@content;
+		}
+	}
+
+	@else if($device=='iphone') {
+		@media screen and (min-width: $iphone) {
+			@content;
+		}
+	}
+}
+
+// FOR HOVER EFFECT MIXIN
+@mixin responsive-min($width) {
+	@media screen and (min-width: $width + "px") {
+		@content;
+	}
+}
+
+//PLACEHOLDER
+
+@mixin section-standards($image) {
+	padding: 200px 0;
+	background: linear-gradient( to right , $transperentSecondaryColor, $transperentSecondaryColor), url('../images/#{$image}');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}

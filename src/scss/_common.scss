@@ -1,0 +1,94 @@
+/* 1.2. Clear Fix
+   ========================== */
+
+.cf:before,
+.cf:after {
+  display: table;
+  content: " ";
+}
+
+.cf:after { clear: both; }
+.cf { *zoom: 1; }
+
+/*for all*/
+html { scroll-behavior: smooth; }
+
+body {
+  box-sizing: border-box;
+  font-family: 'Montserrat';
+}
+
+a { 
+  display: inline-block;
+  text-decoration: none; 
+}
+
+li {
+  display: inline-block;
+  list-style-type: none;
+}
+
+/*for wrapper*/
+.wrapper {
+  max-width: 1360px;
+  width: 85%; 
+  margin: 0 auto;
+}
+
+//COMMON CLASSES
+.block { display: block; }
+.none { display: none; }
+.no-scroll { overflow: hidden; }
+
+main { animation: mainpopup 1s forwards; }
+
+@keyframes mainpopup {
+  0% { display: none; }
+  99% { display: none; }
+  100% { display: block; }
+}
+
+
+.welcome {
+	width: 100%;
+  height: 100vh;
+  @include flex(wrap,row,center,center,center);
+  @include position(fixed,5,0,auto,auto,0);
+  background-color: $litePrimaryColor;
+	animation: slide-up 2s ease-in 1s forwards;
+
+  figure { 
+    width: 90px;
+
+    @include breakpoint(phone) { width: 70px; }
+  }
+
+  @include breakpoint(phone) { background-color: $mobileLitePrimaryColor; }
+
+}
+
+@keyframes slide-up {
+	0% { 
+		opacity: 1;
+		z-index: 2;
+	}
+
+	99% { 
+		opacity: 0;
+		z-index: 2;
+	}
+
+	100% { 
+		opacity: 0;
+		display: none;
+		z-index: -1;
+	}
+}
+
+.welcome-user { animation: no-scroll 3s ease-in-out forwards; }
+
+@keyframes no-scroll {
+	0% { overflow: hidden;}
+	99% { overflow: hidden; }
+	100% { overflow: auto; }
+}
