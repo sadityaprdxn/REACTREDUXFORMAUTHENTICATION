@@ -1,12 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../scss/App.scss';
-import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Redirect,
-    useHistory
-} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import backgroundImage from '../images/Ffootball1.jpg';
 import { useSelector, useDispatch } from 'react-redux';
 import { addUser , loginUser} from '../redux/actions/actions';

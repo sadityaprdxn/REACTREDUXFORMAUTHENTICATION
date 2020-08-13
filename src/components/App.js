@@ -1,10 +1,8 @@
-import React, { useState , useEffect } from 'react';
+import React  from 'react';
 import '../scss/App.scss';
 import {
   BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect
+  Route
 } from 'react-router-dom';
 import Form from './Form';
 import Profile from './Profile';

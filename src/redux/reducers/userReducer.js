@@ -27,7 +27,7 @@ const userReducer = (state = initialState, action) => {
         case 'UPDATE_USER' : 
         return {
             ...state,
-            users: 
+            users : 
                 state.users.map(elemnet => {
                     if(elemnet.id == action.payLoad.id) {
                         return action.payLoad;

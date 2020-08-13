@@ -1,10 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import '../scss/App.scss';
 import {
-    BrowserRouter as Router,
-    Route,
-    Switch,
-    Redirect,
     useHistory,
     useParams
 } from 'react-router-dom';
